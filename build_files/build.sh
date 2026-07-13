@@ -36,3 +36,13 @@ systemctl --global add-wants niri.service mako.service
 systemctl --global add-wants niri.service swayidle.service
 systemctl --global add-wants niri.service swaybg.service
 systemctl --global add-wants niri.service plasma-polkit-agent.service
+
+# Clean up boot artifacts from base image
+rm -rf /boot/extlinux
+
+# Clean up runtime-only directories
+rm -rf /run/dnf
+
+# Clean up dnf runtime files that lack tmpfiles.d entries
+rm -f /var/lib/dnf/system-repo.lock
+rm -f /var/lib/dnf/repos/*/countme
