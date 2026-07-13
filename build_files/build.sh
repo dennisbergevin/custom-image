@@ -43,6 +43,5 @@ rm -rf /boot/extlinux
 # Clean up runtime-only directories
 rm -rf /run/dnf
 
-# Clean up dnf runtime files that lack tmpfiles.d entries
-rm -f /var/lib/dnf/system-repo.lock
-rm -f /var/lib/dnf/repos/*/countme
+# Clean up dnf state (repos, lock, countme, cache)
+rm -rf /var/lib/dnf
