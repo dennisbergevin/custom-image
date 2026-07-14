@@ -29,6 +29,10 @@ dnf5 -y install \
   xwayland-satellite \
   swaybg
 
+dnf5 -y copr enable erikreider/swayosd
+dnf5 -y install swayosd
+dnf5 -y copr disable erikreider/swayosd
+
 dnf5 -y --enable-repo=terra install vicinae
 
 systemctl enable podman.socket
@@ -36,6 +40,7 @@ systemctl --global add-wants niri.service mako.service
 systemctl --global add-wants niri.service swayidle.service
 systemctl --global add-wants niri.service swaybg.service
 systemctl --global add-wants niri.service plasma-polkit-agent.service
+systemctl --global add-wants niri.service swayosd-server.service
 
 # Clean up boot artifacts from base image
 rm -rf /boot/extlinux
