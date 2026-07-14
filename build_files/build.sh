@@ -16,6 +16,7 @@ dnf5 -y remove plasma-workspace plasma-* kde-*
 dnf5 -y install \
   niri \
   alacritty \
+  foot \
   gdm \
   xdg-desktop-portal-gtk \
   xdg-desktop-portal-gnome \
@@ -32,8 +33,6 @@ dnf5 -y install \
 dnf5 -y copr enable erikreider/swayosd
 dnf5 -y install swayosd
 dnf5 -y copr disable erikreider/swayosd
-
-dnf5 -y --enable-repo=terra install vicinae
 
 systemctl enable podman.socket
 systemctl --global add-wants niri.service mako.service
